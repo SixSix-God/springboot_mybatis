@@ -1,0 +1,20 @@
+server:
+  port: 8080
+
+spring:
+  datasource:
+    username: postgres
+    password: 123456
+    url: jdbc:postgresql://localhost:5432/postgres?useUnicode=true&amp;characterEncoding=utf-8&amp;zeroDateTimeBehavior=convertToNull&amp;transformedBitIsBoolean=true
+    driver-class-name: org.postgresql.Driver
+
+mybatis:
+  mapper-locations: classpath:mapping/*Mapper.xml
+  type-aliases-package: com.ntm.boot_mybatis.model
+
+#showSql
+logging:
+  level:
+    com:
+      example:
+        mapper : debug
