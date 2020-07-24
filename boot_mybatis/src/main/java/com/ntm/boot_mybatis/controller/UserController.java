@@ -3,16 +3,15 @@ package com.ntm.boot_mybatis.controller;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.ntm.boot_mybatis.model.User;
 import com.ntm.boot_mybatis.service.UserService;
+import com.ntm.boot_mybatis.util.Constant;
+import com.ntm.boot_mybatis.util.ResponBase;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/testBoot")
 public class UserController {
-    //创建jackson的核心对象 ObjectMapper
-    ObjectMapper mapper = new ObjectMapper();
+
     @Autowired
     private UserService userService;
 
@@ -22,7 +21,13 @@ public class UserController {
     }
 
     @RequestMapping("getAll")
-    public Object GetAll(){
+    public ResponBase GetAll(){
         return userService.GetAll();
+    }
+
+    @ResponseBody
+    @RequestMapping(value = "insert",method = RequestMethod.POST)
+    public ResponBase Insert(@RequestBody User user){
+        return userService.Insert(user);
     }
 }

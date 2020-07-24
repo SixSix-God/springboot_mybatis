@@ -12,4 +12,6 @@ public interface UserMapper {
     User GetOne(User user);
 
     List<User> GetAll();
+
+    boolean Insert(User user);
 }

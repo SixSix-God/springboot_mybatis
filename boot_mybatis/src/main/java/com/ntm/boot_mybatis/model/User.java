@@ -2,12 +2,6 @@ package com.ntm.boot_mybatis.model;
 
 import java.io.Serializable;
 
-/**
- * @ClassName User
- * @Description
- * @Author ShiZhiQian
- * @Date 2020/6/13 12:10
- **/
 public class User implements Serializable {
 
     private Integer id;
