@@ -21,7 +21,15 @@ public class TestRollbackImpl {
     @Resource
     public UserMapper userMapper;
 
-    public boolean TestRollback(TestRollback testRollback){
+    /**
+     * @Title TestRollback
+     * @Description 测试回滚，同时调用两个表新增，一个表出错回滚，另张表也回滚
+     * @Author TIAN
+     * @Date 2020/7/24 17:31
+     * @Return boolean
+     * @Throws
+     */
+    public boolean TestRollback(TestRollback testRollback) throws Exception{
         userMapper.TestRollback1(testRollback);
         User us = userMapper.GetOne(new User(testRollback.Name,testRollback.Code));
         testRollback.Id = us.id;
