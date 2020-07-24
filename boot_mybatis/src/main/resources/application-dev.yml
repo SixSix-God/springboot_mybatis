@@ -18,6 +18,7 @@ spring:
 mybatis:
   mapper-locations: classpath:mapping/*Mapper.xml
   type-aliases-package: com.ntm.boot_mybatis.model
+  config-location: classpath:mybatis-config.xml
 
 #showSql
 logging:
