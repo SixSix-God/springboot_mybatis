@@ -1,6 +1,7 @@
 package com.ntm.boot_mybatis.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.ntm.boot_mybatis.model.TestRollback;
 import com.ntm.boot_mybatis.model.User;
 import com.ntm.boot_mybatis.service.UserService;
 import com.ntm.boot_mybatis.util.Constant;
@@ -16,8 +17,8 @@ public class UserController {
     private UserService userService;
 
     @RequestMapping("getUser/{id}")
-    public String GetUser(@PathVariable User user){
-        return userService.GetOne(user).toString();
+    public ResponBase GetUser(@PathVariable User user){
+        return userService.GetOne(user);
     }
 
     @RequestMapping("getAll")
@@ -29,5 +30,11 @@ public class UserController {
     @RequestMapping(value = "insert",method = RequestMethod.POST)
     public ResponBase Insert(@RequestBody User user){
         return userService.Insert(user);
+    }
+
+    @ResponseBody
+    @PostMapping(value = "test")
+    public ResponBase TestRollback(@RequestBody TestRollback testRollback){
+        return userService.TestRollback(testRollback);
     }
 }

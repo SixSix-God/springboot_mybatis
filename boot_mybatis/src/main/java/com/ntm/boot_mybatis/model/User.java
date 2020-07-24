@@ -1,12 +1,15 @@
 package com.ntm.boot_mybatis.model;
 
+
 import java.io.Serializable;
 
 public class User implements Serializable {
 
-    private Integer id;
-    private String countryName;
-    private String countryCode;
+    public Integer id;
+    //@JsonAlias(value = {"name","Name"})
+    public String countryName;
+    //@JsonAlias(value = {"code","Code"})
+    public String countryCode;
 
     public User(String countryName, String countryCode) {
         this.countryName = countryName;
