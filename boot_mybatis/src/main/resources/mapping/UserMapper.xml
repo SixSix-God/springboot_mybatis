@@ -8,7 +8,13 @@
         <result column="countryname" property="countryname" javaType="string"/>
         <result column="countrycode" property="countrycode" javaType="string"/>
     </resultMap>
-
+    <resultMap id="BaseResultMap1" type="com.ntm.boot_mybatis.model.TestRollback">
+        <id column="countryid" property="id" javaType="INTEGER"/>
+        <result column="countryname" property="Name" javaType="string"/>
+        <result column="countrycode" property="Code" javaType="string"/>
+        <result column="Peoname" property="Peoname" javaType="string"/>
+        <result column="Peonum" property="Peonum" javaType="string"/>
+    </resultMap>
     <sql id="Base_Column">
         id,countryname,countrycode
     </sql>
@@ -29,12 +35,28 @@
         </trim>
     </select>
 
-    <insert id="insert" parameterType="com.ntm.boot_mybatis.model.User" useGeneratedKeys="true">
+    <insert id="Insert" parameterType="com.ntm.boot_mybatis.model.User" useGeneratedKeys="true">
         INSERT INTO
         country
         (countryname,countrycode)
         VALUES
         (#{countryName}, #{countryCode})
+    </insert>
+
+    <insert id="TestRollback1" parameterType="com.ntm.boot_mybatis.model.TestRollback" useGeneratedKeys="true">
+        INSERT INTO
+        country
+        (countryname,countrycode)
+        VALUES
+        (#{Name}, #{Code})
+    </insert>
+
+    <insert id="TestRollback2" parameterType="com.ntm.boot_mybatis.model.TestRollback" useGeneratedKeys="true">
+        INSERT INTO
+        people
+        (countryid,peoname,peonum)
+        VALUES
+        (#{Id},#{Peoname}, #{Peonum})
     </insert>
 
     <update id="update" parameterType="com.ntm.boot_mybatis.model.User" >
