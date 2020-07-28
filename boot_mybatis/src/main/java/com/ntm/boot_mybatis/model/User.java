@@ -1,8 +1,11 @@
 package com.ntm.boot_mybatis.model;
 
 
-import java.io.Serializable;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
+import java.io.Serializable;
+@Data
 public class User implements Serializable {
 
     public Integer id;
@@ -25,36 +28,36 @@ public class User implements Serializable {
     public User() {
     }
 
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public String getCountryName() {
-        return countryName;
-    }
-
-    public void setCountryName(String countryName) {
-        this.countryName = countryName;
-    }
-
-    public String getCountryCode() {
-        return countryCode;
-    }
-
-    public void setCountryCode(String countryCode) {
-        this.countryCode = countryCode;
-    }
-
-    @Override
-    public String toString() {
-        return "User{" +
-                "id=" + id +
-                ", countryName='" + countryName + '\'' +
-                ", countryCode='" + countryCode + '\'' +
-                '}';
-    }
+//    public Integer getId() {
+//        return id;
+//    }
+//
+//    public void setId(Integer id) {
+//        this.id = id;
+//    }
+//
+//    public String getCountryName() {
+//        return countryName;
+//    }
+//
+//    public void setCountryName(String countryName) {
+//        this.countryName = countryName;
+//    }
+//
+//    public String getCountryCode() {
+//        return countryCode;
+//    }
+//
+//    public void setCountryCode(String countryCode) {
+//        this.countryCode = countryCode;
+//    }
+//
+//    @Override
+//    public String toString() {
+//        return "User{" +
+//                "id=" + id +
+//                ", countryName='" + countryName + '\'' +
+//                ", countryCode='" + countryCode + '\'' +
+//                '}';
+//    }
 }

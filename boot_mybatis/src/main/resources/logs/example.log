@@ -6,3 +6,13 @@ DEBUG http-nio-8080-exec-1 com.ntm.boot_mybatis.mapper.UserMapper.GetAll - ==>  
 DEBUG http-nio-8080-exec-1 com.ntm.boot_mybatis.mapper.UserMapper.GetAll - ==> Parameters: 
 DEBUG http-nio-8080-exec-1 com.ntm.boot_mybatis.mapper.UserMapper.GetAll - <==      Total: 9
 DEBUG http-nio-8080-exec-1 org.mybatis.spring.SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@395292fd]
+DEBUG main org.apache.ibatis.logging.LogFactory - Logging initialized using 'class org.apache.ibatis.logging.log4j.Log4jImpl' adapter.
+DEBUG restartedMain org.apache.ibatis.logging.LogFactory - Logging initialized using 'class org.apache.ibatis.logging.log4j.Log4jImpl' adapter.
+DEBUG main org.apache.ibatis.logging.LogFactory - Logging initialized using 'class org.apache.ibatis.logging.log4j.Log4jImpl' adapter.
+DEBUG http-nio-8080-exec-1 org.mybatis.spring.SqlSessionUtils - Creating a new SqlSession
+DEBUG http-nio-8080-exec-1 org.mybatis.spring.SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@8ffe42e] was not registered for synchronization because synchronization is not active
+DEBUG http-nio-8080-exec-1 org.mybatis.spring.transaction.SpringManagedTransaction - JDBC Connection [HikariProxyConnection@484819244 wrapping org.postgresql.jdbc.PgConnection@12bb84df] will not be managed by Spring
+DEBUG http-nio-8080-exec-1 com.ntm.boot_mybatis.mapper.UserMapper.GetAll - ==>  Preparing: SELECT id,countryname,countrycode FROM country
+DEBUG http-nio-8080-exec-1 com.ntm.boot_mybatis.mapper.UserMapper.GetAll - ==> Parameters: 
+DEBUG http-nio-8080-exec-1 com.ntm.boot_mybatis.mapper.UserMapper.GetAll - <==      Total: 9
+DEBUG http-nio-8080-exec-1 org.mybatis.spring.SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@8ffe42e]
