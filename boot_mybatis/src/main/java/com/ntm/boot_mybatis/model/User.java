@@ -1,11 +1,14 @@
 package com.ntm.boot_mybatis.model;
 
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class User implements Serializable {
 
     public Integer id;
@@ -18,15 +21,15 @@ public class User implements Serializable {
         this.countryName = countryName;
         this.countryCode = countryCode;
     }
-
-    public User(Integer id, String countryName, String countryCode) {
-        this.id = id;
-        this.countryName = countryName;
-        this.countryCode = countryCode;
-    }
-
-    public User() {
-    }
+//
+//    public User(Integer id, String countryName, String countryCode) {
+//        this.id = id;
+//        this.countryName = countryName;
+//        this.countryCode = countryCode;
+//    }
+//
+//    public User() {
+//    }
 
 //    public Integer getId() {
 //        return id;
