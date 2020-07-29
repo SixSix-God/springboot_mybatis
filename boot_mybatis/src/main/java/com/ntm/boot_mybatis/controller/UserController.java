@@ -22,26 +22,26 @@ public class UserController {
     private UserService userService;
 
     @ResponseBody
-    @RequestMapping("getUser/{id}")
+    @RequestMapping("/getUser/{id}")
     public ResponBase GetUser(@PathVariable User user) {
         return userService.GetOne(user);
     }
 
     @ResponseBody
-    @RequestMapping("getAll")
+    @RequestMapping("/getAll")
     public ResponBase GetAll() {
         return userService.GetAll();
     }
 
     @ResponseBody
-    @RequestMapping(value = "insert", method = RequestMethod.POST)
+    @GetMapping(value = "/insert")
     public ResponBase Insert(@RequestBody User user) {
         return userService.Insert(user);
     }
 
     //@ResponseBody将方法返回数据转为json格式
     @ResponseBody
-    @PostMapping(value = "test")
+    @PostMapping(value = "/test")
     //@RequestBody接收json格式参数
     public ResponBase TestRollback(@RequestBody TestRollback testRollback) {
         return userService.TestRollback(testRollback);
