@@ -177,3 +177,22 @@ DEBUG http-nio-7071-exec-2 com.ntm.boot_mybatis.mapper.UserMapper.GetAll - ==>  
 DEBUG http-nio-7071-exec-2 com.ntm.boot_mybatis.mapper.UserMapper.GetAll - ==> Parameters: 
 DEBUG http-nio-7071-exec-2 com.ntm.boot_mybatis.mapper.UserMapper.GetAll - <==      Total: 9
 DEBUG http-nio-7071-exec-2 org.mybatis.spring.SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@79ce5c7]
+DEBUG restartedMain org.apache.ibatis.logging.LogFactory - Logging initialized using 'class org.apache.ibatis.logging.log4j.Log4jImpl' adapter.
+DEBUG restartedMain org.apache.ibatis.logging.LogFactory - Logging initialized using 'class org.apache.ibatis.logging.log4j.Log4jImpl' adapter.
+DEBUG http-nio-7071-exec-2 org.mybatis.spring.SqlSessionUtils - Creating a new SqlSession
+DEBUG http-nio-7071-exec-2 org.mybatis.spring.SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1263004c] was not registered for synchronization because synchronization is not active
+DEBUG http-nio-7071-exec-2 org.mybatis.spring.transaction.SpringManagedTransaction - JDBC Connection [HikariProxyConnection@528120497 wrapping org.postgresql.jdbc.PgConnection@13d48ad0] will not be managed by Spring
+DEBUG http-nio-7071-exec-2 com.ntm.boot_mybatis.mapper.UserMapper.GetAll - ==>  Preparing: SELECT id,countryname,countrycode FROM country
+DEBUG http-nio-7071-exec-2 com.ntm.boot_mybatis.mapper.UserMapper.GetAll - ==> Parameters: 
+TRACE http-nio-7071-exec-2 com.ntm.boot_mybatis.mapper.UserMapper.GetAll - <==    Columns: id, countryname, countrycode
+TRACE http-nio-7071-exec-2 com.ntm.boot_mybatis.mapper.UserMapper.GetAll - <==        Row: 1, 中国, CN
+TRACE http-nio-7071-exec-2 com.ntm.boot_mybatis.mapper.UserMapper.GetAll - <==        Row: 2, 美国, US
+TRACE http-nio-7071-exec-2 com.ntm.boot_mybatis.mapper.UserMapper.GetAll - <==        Row: 3, 俄罗斯, RU
+TRACE http-nio-7071-exec-2 com.ntm.boot_mybatis.mapper.UserMapper.GetAll - <==        Row: 4, 英国, GB
+TRACE http-nio-7071-exec-2 com.ntm.boot_mybatis.mapper.UserMapper.GetAll - <==        Row: 5, 法国, FR
+TRACE http-nio-7071-exec-2 com.ntm.boot_mybatis.mapper.UserMapper.GetAll - <==        Row: 6, 巴西, CV
+TRACE http-nio-7071-exec-2 com.ntm.boot_mybatis.mapper.UserMapper.GetAll - <==        Row: 7, 韩国, TR
+TRACE http-nio-7071-exec-2 com.ntm.boot_mybatis.mapper.UserMapper.GetAll - <==        Row: 8, 日本, RB
+TRACE http-nio-7071-exec-2 com.ntm.boot_mybatis.mapper.UserMapper.GetAll - <==        Row: 12, 朝鲜, CX
+DEBUG http-nio-7071-exec-2 com.ntm.boot_mybatis.mapper.UserMapper.GetAll - <==      Total: 9
+DEBUG http-nio-7071-exec-2 org.mybatis.spring.SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1263004c]
