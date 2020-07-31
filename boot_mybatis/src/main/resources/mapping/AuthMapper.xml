@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ntm.boot_mybatis.mapper.AuthMapper">
+    <select id="findByUsername" resultType="com.ntm.boot_mybatis.entity.UserDetail">
+        SELECT id, name, password from "user" where name = #{name};
+    </select>
+
+    <insert id="insert" parameterType="com.ntm.boot_mybatis.entity.UserDetail" useGeneratedKeys="true" keyProperty="id">
+        insert into "user" (name, password) VALUES (#{username}, #{password});
+    </insert>
+
+    <insert id="insertUserRole">
+        insert into "user_role" (user_id, role_id) VALUES (#{userId}, #{roleId});
+    </insert>
+
+    <insert id="insertRole">
+        insert into "role" (role_type, role_name) VALUES (#{roleType}, #{roleName});
+    </insert>
+
+    <select id="findRoleById" resultType="com.ntm.boot_mybatis.entity.Role">
+      select id, role_type, role_name from "role" where id = #{roleId}
+    </select>
+
+    <select id="findRoleByUserId" resultType="com.ntm.boot_mybatis.entity.Role">
+        select * from "role" where id in (SELECT role_id from "user_role" where user_id = #{userId});
+    </select>
+</mapper>

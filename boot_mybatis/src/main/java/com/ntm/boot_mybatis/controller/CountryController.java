@@ -1,8 +1,8 @@
 package com.ntm.boot_mybatis.controller;
 
+import com.ntm.boot_mybatis.entity.Country;
 import com.ntm.boot_mybatis.model.TestRollback;
-import com.ntm.boot_mybatis.model.User;
-import com.ntm.boot_mybatis.service.UserService;
+import com.ntm.boot_mybatis.service.CountryService;
 import com.ntm.boot_mybatis.util.ResponBase;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -16,27 +16,27 @@ import org.springframework.web.bind.annotation.*;
  */
 @RestController
 @RequestMapping("/testBoot")
-public class UserController {
+public class CountryController {
 
     @Autowired
-    private UserService userService;
+    private CountryService countryService;
 
     @ResponseBody
     @RequestMapping("/getUser/{id}")
-    public ResponBase GetUser(@PathVariable User user) {
-        return userService.GetOne(user);
+    public ResponBase GetUser(@PathVariable Country country) {
+        return countryService.GetOne(country);
     }
 
     @ResponseBody
     @RequestMapping("/getAll")
     public ResponBase GetAll() {
-        return userService.GetAll();
+        return countryService.GetAll();
     }
 
     @ResponseBody
     @GetMapping(value = "/insert")
-    public ResponBase Insert(@RequestBody User user) {
-        return userService.Insert(user);
+    public ResponBase Insert(@RequestBody Country country) {
+        return countryService.Insert(country);
     }
 
     //@ResponseBody将方法返回数据转为json格式
@@ -44,6 +44,6 @@ public class UserController {
     @PostMapping(value = "/test")
     //@RequestBody接收json格式参数
     public ResponBase TestRollback(@RequestBody TestRollback testRollback) {
-        return userService.TestRollback(testRollback);
+        return countryService.TestRollback(testRollback);
     }
 }

@@ -1,4 +1,4 @@
-package com.ntm.boot_mybatis.model;
+package com.ntm.boot_mybatis.entity;
 
 
 import lombok.AllArgsConstructor;
@@ -9,7 +9,7 @@ import java.io.Serializable;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class User implements Serializable {
+public class Country implements Serializable {
 
     public Integer id;
     //@JsonAlias(value = {"name","Name"})
@@ -17,18 +17,18 @@ public class User implements Serializable {
     //@JsonAlias(value = {"code","Code"})
     public String countryCode;
 
-    public User(String countryName, String countryCode) {
+    public Country(String countryName, String countryCode) {
         this.countryName = countryName;
         this.countryCode = countryCode;
     }
 //
-//    public User(Integer id, String countryName, String countryCode) {
+//    public Country(Integer id, String countryName, String countryCode) {
 //        this.id = id;
 //        this.countryName = countryName;
 //        this.countryCode = countryCode;
 //    }
 //
-//    public User() {
+//    public Country() {
 //    }
 
 //    public Integer getId() {
@@ -57,7 +57,7 @@ public class User implements Serializable {
 //
 //    @Override
 //    public String toString() {
-//        return "User{" +
+//        return "Country{" +
 //                "id=" + id +
 //                ", countryName='" + countryName + '\'' +
 //                ", countryCode='" + countryCode + '\'' +

@@ -1,7 +1,7 @@
 package com.ntm.boot_mybatis.mapper;
 
-import com.ntm.boot_mybatis.model.People;
-import com.ntm.boot_mybatis.model.User;
+import com.ntm.boot_mybatis.entity.People;
+import com.ntm.boot_mybatis.entity.Country;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -19,5 +19,5 @@ public interface PeopleMapper {
 
     People GetOne(People people);
 
-    People GetOneByUser(User user);
+    People GetOneByUser(Country country);
 }
