@@ -1,8 +1,8 @@
 package com.ntm.boot_mybatis.service;
 
-import com.ntm.boot_mybatis.mapper.UserMapper;
+import com.ntm.boot_mybatis.mapper.CountryMapper;
 import com.ntm.boot_mybatis.model.TestRollback;
-import com.ntm.boot_mybatis.model.User;
+import com.ntm.boot_mybatis.entity.Country;
 import com.ntm.boot_mybatis.service.Impl.TestRollbackImpl;
 import com.ntm.boot_mybatis.util.Constant;
 import com.ntm.boot_mybatis.util.ResponBase;
@@ -14,9 +14,9 @@ import org.springframework.transaction.annotation.Transactional;
 
 //service层注解
 @Service
-public class UserService {
+public class CountryService {
     @Autowired
-    UserMapper userMapper;
+    CountryMapper countryMapper;
     @Autowired
     public TestRollbackImpl impl;
 
@@ -28,10 +28,10 @@ public class UserService {
      * @Return com.ntm.boot_mybatis.util.ResponBase
      * @Throws
      */
-    public ResponBase GetOne(User user){
+    public ResponBase GetOne(Country country){
         ResponBase responBase = new ResponBase();
         try {
-            responBase.data = userMapper.GetOne(user);
+            responBase.data = countryMapper.GetOne(country);
             responBase.success = true;
             responBase.statecode = Constant.SUCCESSED_CODE;
         }catch (Exception ex){
@@ -53,7 +53,7 @@ public class UserService {
     public ResponBase GetAll(){
         ResponBase responBase = new ResponBase();
         try {
-            responBase.data = userMapper.GetAll();
+            responBase.data = countryMapper.GetAll();
             responBase.success = true;
             responBase.statecode = Constant.SUCCESSED_CODE;
         }catch (Exception ex){
@@ -73,10 +73,10 @@ public class UserService {
      * @Throws
      */
     @Transactional(propagation = Propagation.REQUIRED,isolation = Isolation.DEFAULT,timeout = 36000,rollbackFor = Exception.class)
-    public ResponBase Insert(User user){
+    public ResponBase Insert(Country country){
         ResponBase responBase = new ResponBase();
         try {
-            responBase.data = userMapper.Insert(user);
+            responBase.data = countryMapper.Insert(country);
             responBase.success = true;
             responBase.statecode = Constant.SUCCESSED_CODE;
         }catch (Exception ex){

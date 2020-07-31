@@ -1,11 +1,9 @@
 package com.ntm.boot_mybatis.service.Impl;
 
-import com.ntm.boot_mybatis.mapper.UserMapper;
+import com.ntm.boot_mybatis.mapper.CountryMapper;
+import com.ntm.boot_mybatis.entity.Country;
 import com.ntm.boot_mybatis.model.TestRollback;
-import com.ntm.boot_mybatis.model.User;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 
@@ -19,7 +17,7 @@ import javax.annotation.Resource;
 @Component
 public class TestRollbackImpl {
     @Resource
-    public UserMapper userMapper;
+    public CountryMapper countryMapper;
 
     /**
      * @Title TestRollback
@@ -30,10 +28,10 @@ public class TestRollbackImpl {
      * @Throws
      */
     public boolean TestRollback(TestRollback testRollback) throws Exception{
-        userMapper.TestRollback1(testRollback);
-        User us = userMapper.GetOne(new User(testRollback.Name,testRollback.Code));
+        countryMapper.TestRollback1(testRollback);
+        Country us = countryMapper.GetOne(new Country(testRollback.Name,testRollback.Code));
         testRollback.Id = us.id;
-        userMapper.TestRollback2(testRollback);
+        countryMapper.TestRollback2(testRollback);
         return true;
     }
 }

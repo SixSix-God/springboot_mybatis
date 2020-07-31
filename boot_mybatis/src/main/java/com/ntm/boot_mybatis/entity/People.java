@@ -1,4 +1,4 @@
-package com.ntm.boot_mybatis.model;
+package com.ntm.boot_mybatis.entity;
 
 /**
  * @ClassName People

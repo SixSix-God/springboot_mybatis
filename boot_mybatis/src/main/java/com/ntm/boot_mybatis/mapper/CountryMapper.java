@@ -2,19 +2,19 @@ package com.ntm.boot_mybatis.mapper;
 
 
 import com.ntm.boot_mybatis.model.TestRollback;
-import com.ntm.boot_mybatis.model.User;
+import com.ntm.boot_mybatis.entity.Country;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
 @Repository
-public interface UserMapper {
+public interface CountryMapper {
 
-    User GetOne(User user);
+    Country GetOne(Country country);
 
-    List<User> GetAll();
+    List<Country> GetAll();
 
-    boolean Insert(User user);
+    boolean Insert(Country country);
 
     boolean TestRollback1(TestRollback testRollback);
 
