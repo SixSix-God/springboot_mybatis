@@ -87,9 +87,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     public void configure(WebSecurity web) {
-        web
-                .ignoring()
-                .antMatchers(
+        web.ignoring().antMatchers(
                         "swagger-ui.html",
                         "**/swagger-ui.html",
                         "/favicon.ico",

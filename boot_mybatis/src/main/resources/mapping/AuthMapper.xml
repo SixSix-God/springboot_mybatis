@@ -15,9 +15,17 @@
         insert into "user_role" (user_id, role_id) VALUES (#{userId}, #{roleId});
     </insert>
 
-    <insert id="insertRole">
+    <!--新增返回自增ID-->
+    <insert id="insertRole" useGeneratedKeys="true" keyProperty="id" parameterType="com.ntm.boot_mybatis.entity.Role">
         insert into "role" (role_type, role_name) VALUES (#{roleType}, #{roleName});
     </insert>
+
+    <!--<insert id="insertRole">-->
+        <!--<selectKey resultType="java.lang.Long" order="AFTER" keyProperty="id">-->
+            <!--select LAST_INSERT_ID()-->
+        <!--</selectKey>-->
+        <!--insert into "role" (role_type, role_name) VALUES (#{roleType}, #{roleName});-->
+    <!--</insert>-->
 
     <select id="findRoleById" resultType="com.ntm.boot_mybatis.entity.Role">
       select id, role_type, role_name from "role" where id = #{roleId}

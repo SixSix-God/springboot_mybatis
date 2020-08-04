@@ -7,12 +7,14 @@ spring:
     password: 123456
     url: jdbc:postgresql://localhost:5432/postgres?useUnicode=true&amp;characterEncoding=utf-8&amp;zeroDateTimeBehavior=convertToNull&amp;transformedBitIsBoolean=true
     driver-class-name: org.postgresql.Driver
-
+  jackson:
+      data-format: yyyy-MM-dd HH:mm:ss
+      time-zone: GMT+8
 # JWT
 jwt:
   header: Authorization
   secret: mySecret
-  #token有效期一天
+  #token有效期
   expiration: 3600
   tokenHead: "Bearer"
 
