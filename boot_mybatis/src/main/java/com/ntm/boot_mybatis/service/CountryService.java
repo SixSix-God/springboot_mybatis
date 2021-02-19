@@ -11,9 +11,11 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.transaction.interceptor.TransactionAspectSupport;
 
 //service层注解
 @Service
+@Transactional(propagation = Propagation.REQUIRED, timeout = 36000, rollbackFor = Exception.class)
 public class CountryService {
     @Autowired
     CountryMapper countryMapper;
@@ -72,7 +74,7 @@ public class CountryService {
      * @Return com.ntm.boot_mybatis.util.ResponBase
      * @Throws
      */
-    @Transactional(propagation = Propagation.REQUIRED,isolation = Isolation.DEFAULT,timeout = 36000,rollbackFor = Exception.class)
+    //@Transactional(propagation = Propagation.REQUIRED,isolation = Isolation.DEFAULT,timeout = 36000,rollbackFor = Exception.class)
     public ResponBase Insert(Country country){
         ResponBase responBase = new ResponBase();
         try {
@@ -95,17 +97,19 @@ public class CountryService {
      * @Throws
      */
     //开启事务注解（使用该注解Autowired的不能为private）
-    @Transactional(propagation = Propagation.REQUIRED,isolation = Isolation.DEFAULT,timeout = 36000,rollbackFor = Exception.class)
+    //@Transactional(propagation = Propagation.REQUIRED,timeout = 36000,rollbackFor = Exception.class)
     public ResponBase TestRollback(TestRollback testRollback){
         ResponBase responBase = new ResponBase();
         try {
             responBase.data = impl.TestRollback(testRollback);
             responBase.success = true;
             responBase.statecode = Constant.SUCCESSED_CODE;
-        }catch (Exception ex){
+        } catch (Exception ex) {
             responBase.errormsg = ex.toString();
             responBase.success = false;
             responBase.statecode = Constant.FAILED_CODE;
+            throw new RuntimeException(ex);
+            //TransactionAspectSupport.currentTransactionStatus().setRollbackOnly();
         }
         return responBase;
     }

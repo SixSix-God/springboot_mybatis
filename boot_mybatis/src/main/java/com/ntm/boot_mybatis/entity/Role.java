@@ -1,13 +1,22 @@
 package com.ntm.boot_mybatis.entity;
 
-import lombok.Builder;
+import java.io.Serializable;
+
 import lombok.Data;
 
-
 @Data
-@Builder
-public class Role {
-    private Long id;
+public class Role implements Serializable {
+    private static final long serialVersionUID = 1L;
+    /**
+     *
+     */
+    private Integer id;
+    /**
+     *
+     */
     private String roleName;
+    /**
+     *
+     */
     private String roleType;
 }

@@ -21,13 +21,13 @@
     <select id="GetAll" resultType="com.ntm.boot_mybatis.entity.Country">
         SELECT
         <include refid="Base_Column"/>
-        FROM country
+        FROM springboot.country
     </select>
 
     <select id="GetOne" resultType="com.ntm.boot_mybatis.entity.Country">
         select
         <include refid="Base_Column"/>
-        from country
+        from springboot.country
         <trim prefix="where" prefixOverrides="and">
             <if test="id != null">and id = #{id}</if>
             <if test="countryName != null">and countryName = #{countryName}</if>
@@ -37,7 +37,7 @@
 
     <insert id="Insert" parameterType="com.ntm.boot_mybatis.entity.Country" useGeneratedKeys="true">
         INSERT INTO
-        country
+        springboot.country
         (countryname,countrycode)
         VALUES
         (#{countryName}, #{countryCode})
@@ -45,7 +45,7 @@
 
     <insert id="TestRollback1" parameterType="com.ntm.boot_mybatis.model.TestRollback" useGeneratedKeys="true">
         INSERT INTO
-        country
+        springboot.country
         (countryname,countrycode)
         VALUES
         (#{Name}, #{Code})
@@ -53,7 +53,7 @@
 
     <insert id="TestRollback2" parameterType="com.ntm.boot_mybatis.model.TestRollback" useGeneratedKeys="true">
         INSERT INTO
-        people
+        springboot.people
         (countryid,peoname,peonum)
         VALUES
         (#{Id},#{Peoname}, #{Peonum})
@@ -61,7 +61,7 @@
 
     <update id="update" parameterType="com.ntm.boot_mybatis.entity.Country" >
         UPDATE
-        country
+        springboot.country
         <trim prefix="set" suffixOverrides="," suffix="where id = #{id}">
             <if test="countryName != null">countryName = #{countryName},</if>
             <if test="countryCode != null">countryCode = #{countryCode},</if>
@@ -70,7 +70,7 @@
 
     <delete id="delete" parameterType="java.lang.Long" >
         DELETE FROM
-        country
+        springboot.country
         WHERE
         id =#{id}
     </delete>
