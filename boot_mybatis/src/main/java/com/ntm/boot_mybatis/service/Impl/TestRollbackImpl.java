@@ -27,11 +27,12 @@ public class TestRollbackImpl {
      * @Return boolean
      * @Throws
      */
-    public boolean TestRollback(TestRollback testRollback) throws Exception{
+    public boolean TestRollback(TestRollback testRollback) {
         countryMapper.TestRollback1(testRollback);
-        Country us = countryMapper.GetOne(new Country(testRollback.Name,testRollback.Code));
+        Country us = countryMapper.GetOne(new Country(testRollback.Name, testRollback.Code));
         testRollback.Id = us.id;
         countryMapper.TestRollback2(testRollback);
+        int i = 1 / 0;
         return true;
     }
 }

@@ -19,4 +19,8 @@ public interface CountryMapper {
     boolean TestRollback1(TestRollback testRollback);
 
     boolean TestRollback2(TestRollback testRollback);
+
+    boolean update(Country country);
+
+    boolean delete(int id);
 }

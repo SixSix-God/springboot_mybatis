@@ -15,26 +15,26 @@ import org.springframework.web.bind.annotation.*;
  * 可配合@RequestParam来使用
  */
 @RestController
-@RequestMapping("/testBoot")
+@RequestMapping("/api")
 public class CountryController {
 
     @Autowired
     private CountryService countryService;
 
     @ResponseBody
-    @RequestMapping("/getUser/{id}")
+    @RequestMapping("/getUser")
     public ResponBase GetUser(@PathVariable Country country) {
         return countryService.GetOne(country);
     }
 
     @ResponseBody
-    @RequestMapping("/getAll")
+    @RequestMapping(path = "/getAll", method = RequestMethod.GET)
     public ResponBase GetAll() {
         return countryService.GetAll();
     }
 
     @ResponseBody
-    @GetMapping(value = "/insert")
+    @PostMapping(value = "/insert")
     public ResponBase Insert(@RequestBody Country country) {
         return countryService.Insert(country);
     }

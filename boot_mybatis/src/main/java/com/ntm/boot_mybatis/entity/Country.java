@@ -1,6 +1,7 @@
 package com.ntm.boot_mybatis.entity;
 
 
+import com.fasterxml.jackson.annotation.JsonAlias;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -12,9 +13,9 @@ import java.io.Serializable;
 public class Country implements Serializable {
 
     public Integer id;
-    //@JsonAlias(value = {"name","Name"})
+    @JsonAlias(value = {"name", "Name"})
     public String countryName;
-    //@JsonAlias(value = {"code","Code"})
+    @JsonAlias(value = {"code", "Code"})
     public String countryCode;
 
     public Country(String countryName, String countryCode) {
