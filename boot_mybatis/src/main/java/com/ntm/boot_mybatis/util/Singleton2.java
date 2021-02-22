@@ -10,7 +10,7 @@ package com.ntm.boot_mybatis.util;
  */
 public class Singleton2 {
     // 指向自己实例的私有静态引用
-    private static Singleton2 singleton2;
+    private static Singleton2 singleton2 = null;
 
     // 私有的构造方法
     private Singleton2() {
