@@ -1,8 +1,22 @@
 package com.ntm.boot_mybatis.TestDemo;
 
+import com.ntm.boot_mybatis.ChouXiangGongChang.AbstractFactory;
+import com.ntm.boot_mybatis.ChouXiangGongChang.Color;
+import com.ntm.boot_mybatis.ChouXiangGongChang.FactoryProducer;
+import com.ntm.boot_mybatis.ChouXiangGongChang.Shape;
 import com.ntm.boot_mybatis.DesignPatterns.Citation;
 import com.ntm.boot_mybatis.DesignPatterns.SunWuKong;
-import com.sun.org.apache.xpath.internal.operations.Bool;
+import com.ntm.boot_mybatis.GongChang.Car;
+import com.ntm.boot_mybatis.GongChang.Factory;
+import com.ntm.boot_mybatis.GuanChaZhe.LaoLi;
+import com.ntm.boot_mybatis.GuanChaZhe.LaoWang;
+import com.ntm.boot_mybatis.GuanChaZhe.XiaoMei;
+import com.ntm.boot_mybatis.ShiPeiZhe.Phone;
+import com.ntm.boot_mybatis.ShiPeiZhe.VoltageAdapter;
+import com.ntm.boot_mybatis.ZhuangShiZhe.Bread;
+import com.ntm.boot_mybatis.ZhuangShiZhe.Cream;
+import com.ntm.boot_mybatis.ZhuangShiZhe.Food;
+import com.ntm.boot_mybatis.ZhuangShiZhe.Vegetable;
 import org.junit.Test;
 
 import javax.swing.*;
@@ -75,5 +89,77 @@ public class PrototypeTest {
 
         int i7 = 128;
         System.out.println(i6 == i7);//true
+    }
+
+    //观察者模式
+    @Test
+    public void testGuanChaZhe() {
+        XiaoMei xiaomei = new XiaoMei();
+        LaoLi laoLi = new LaoLi();
+        LaoWang laoWang = new LaoWang();
+
+        xiaomei.addPerson(laoLi);
+        xiaomei.addPerson(laoWang);
+
+        xiaomei.notifyPerson();
+    }
+
+    //装饰者模式
+    @Test
+    public void testZhuangShiZhe() {
+        Food food = new Bread(new Vegetable(new Cream(new Food("香肠"))));
+        System.out.println(food.make());
+    }
+
+    //适配者模式
+    @Test
+    public void testShiPeiZhe() {
+        Phone phone = new Phone();
+        VoltageAdapter voltageAdapter = new VoltageAdapter();
+        phone.setAdapter(voltageAdapter);
+        phone.charge();
+    }
+
+    //工厂模式
+    @Test
+    public void testGongChang() {
+        Car c = Factory.getCarInstance("Benz");
+        if (c != null) {
+            c.run();
+            c.stop();
+        } else {
+            System.out.println("造车失败!");
+        }
+    }
+
+    //抽象工厂模式
+    @Test
+    public void testChouXiangGongChang() {
+        AbstractFactory shapeFactory = FactoryProducer.getFactory("SHAPE");
+
+        try {
+            Shape shape1 = shapeFactory.getShape("");
+            shape1.draw();
+        } catch (Exception e) {
+            System.out.println(e.toString());
+        }
+
+        try {
+            Shape shape2 = shapeFactory.getShape("SQUARE");
+
+            shape2.draw();
+        } catch (Exception e) {
+            System.out.println(e.toString());
+        }
+
+        AbstractFactory colorFactory = FactoryProducer.getFactory("COLOR");
+
+        Color color1 = colorFactory.getColor("RED");
+
+        color1.fill();
+
+        Color color2 = colorFactory.getColor("BLUE");
+
+        color2.fill();
     }
 }
