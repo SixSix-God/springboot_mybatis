@@ -11,6 +11,8 @@ import com.ntm.boot_mybatis.GongChang.Factory;
 import com.ntm.boot_mybatis.GuanChaZhe.LaoLi;
 import com.ntm.boot_mybatis.GuanChaZhe.LaoWang;
 import com.ntm.boot_mybatis.GuanChaZhe.XiaoMei;
+import com.ntm.boot_mybatis.JianZaoZhe.Meal;
+import com.ntm.boot_mybatis.JianZaoZhe.MealBuilder;
 import com.ntm.boot_mybatis.ShiPeiZhe.Phone;
 import com.ntm.boot_mybatis.ShiPeiZhe.VoltageAdapter;
 import com.ntm.boot_mybatis.ZhuangShiZhe.Bread;
@@ -161,5 +163,23 @@ public class PrototypeTest {
         Color color2 = colorFactory.getColor("BLUE");
 
         color2.fill();
+    }
+
+    //建造者模式
+    @Test
+    public void testJianZaoZhe() {
+        MealBuilder mealBuilder = new MealBuilder();
+
+        Meal vegMeal = mealBuilder.prepareVegMeal();
+        System.out.println("Veg Meal");
+        vegMeal.showItems();
+        System.out.println("Total Cost : " + vegMeal.getCost());
+
+        Meal nonVegMeal = mealBuilder.prepareNonVegMeal();
+        System.out.println("Non Veg Meal");
+        nonVegMeal.showItems();
+        System.out.println("Total Cost : " + nonVegMeal.getCost());
+
+
     }
 }
